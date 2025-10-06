@@ -103,16 +103,19 @@ fun EntradaBodyScreen(
                     )
 
                     OutlinedTextField(
-                        value = uiState.fecha.toString(),
-                        onValueChange = {},
+                        value = uiState.fecha ?: "Fecha",
+                        onValueChange = { onEvent(EntradaEvent.FechaChange(it))},
                         label = { Text("Fecha") },
                         modifier = Modifier.fillMaxWidth(),
-                        readOnly = true,
-                        enabled = false
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Color.Blue,
+                            unfocusedBorderColor = Color.Gray,
+                            focusedLabelColor = Color.Blue
+                        )
                     )
 
                     OutlinedTextField(
-                        value = uiState.nombreCiente ?: "",
+                        value = uiState.nombreCiente ?: "Nombre del Ciente",
                         onValueChange = { onEvent(EntradaEvent.NombreCienteChange(it))},
                         label = { Text("Nombre del Ciente") },
                         modifier = Modifier.fillMaxWidth(),
@@ -126,17 +129,25 @@ fun EntradaBodyScreen(
                     OutlinedTextField(
                         value = uiState.cantidad?.toString() ?: "Cantidad de Huacales",
                         onValueChange = {onEvent(EntradaEvent.CantidadChange(0))},
+                        label = { Text("Cantidad de Huacales") },
                         modifier = Modifier.fillMaxWidth(),
-                        readOnly = true,
-                        enabled = false
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Color.Blue,
+                            unfocusedBorderColor = Color.Gray,
+                            focusedLabelColor = Color.Blue
+                        )
                     )
 
                     OutlinedTextField(
                         value = uiState.precio?.toString() ?: "Precio de los Huacales",
                         onValueChange = {onEvent(EntradaEvent.PrecioChange(0))},
+                        label = { Text("Precio de los Huacales") },
                         modifier = Modifier.fillMaxWidth(),
-                        readOnly = true,
-                        enabled = false
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Color.Blue,
+                            unfocusedBorderColor = Color.Gray,
+                            focusedLabelColor = Color.Blue
+                        )
                     )
 
                     Spacer(modifier = Modifier.padding(2.dp))
